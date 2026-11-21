@@ -52,5 +52,8 @@
 | ART-0046 | REQ-0046 | C1 | `routes/ai.ts`, `.env.example` AI keys | done |
 | ART-0047 | REQ-0047 | C1 | DetailsSection Suggest polish, AdminDashboard insights draft | done |
 | ART-0048 | REQ-0048 | C1 | `scripts/seed.ts`, `npm run seed`, analytics schema byHotelType fix | done |
+| ART-0027.1 | REQ-0027 | C1 | `hotel-booking-frontend/.env.local` (gitignored) + `vercel.json` con `VITE_STRIPE_PUB_KEY` (pk_test) | done |
+| ART-0028.1 | REQ-0028 | C1 | `hotel-booking-backend/.env` (gitignored), `.dockerignore`, `Dockerfile` healthcheck `PORT \|\| 5001` | config |
+| ART-0028.2 | REQ-0028 | C1 | `hotel-booking-backend/package.json` + `package-lock.json`: `jsonwebtoken@^9.0.3` (jws@4 / jwa@2) | done |
 
 **Rule:** New implementation appends ART-XXXX.N on revision; never orphan code without REQ.

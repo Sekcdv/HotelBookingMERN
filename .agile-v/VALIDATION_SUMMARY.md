@@ -31,6 +31,9 @@
 | VER-0014 | REQ-0040…0042 | PASS | T2: PI persist, cancel+Stripe refund+authz, MyBookings/BookingLog cancel UI; FE lint+build · BE build |
 | VER-0015 | REQ-0043…0045 | PASS | T3: requireAdmin APIs, Analytics snapshots, AdminLayout/pages, invalidation; FE lint+build · BE build |
 | VER-0016 | REQ-0046…0048 | PASS | T4: AI suggest + draft UI + mongoose seed; FE lint+build · BE build · seed OK |
+| VER-0017 | REQ-0027/0028 | PASS | Deploy config: secretos completados, `VITE_STRIPE_PUB_KEY` en vercel.json, BE build PASS, FE build+lint PASS |
+| VER-0018 | REQ-0028 | PASS | JWT fix: `npm ls` → jws@4.0.1/jwa@2.0.1; sign+verify OK; `npm run dev` arranca sin TypeError; BE build PASS · FE build+lint PASS |
+| VER-0019 | REQ-0028 | PASS | Mongo Atlas conecta tras whitelist de IP; `/api/health` 200 `{"status":"healthy","database":{"status":"connected"}}` en 5/5 sondeos |
 
 ## Findings
 
@@ -38,7 +41,7 @@
 |------|-------|-------|
 | PASS | 15 | Baseline + 0033–0034 + T1–T4 |
 | FAIL | 0 | — |
-| FLAG | 0 | Roadmap T1–T4 complete |
+| FLAG | 0 | — |
 
 ## Red Team notes
 

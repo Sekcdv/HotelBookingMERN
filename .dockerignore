@@ -1,0 +1,13 @@
+# Secrets and local overrides must never enter the Docker build context.
+**/node_modules
+**/dist
+**/.env
+**/.env.local
+**/.env.e2e
+
+# VCS / editor noise
+.git
+.gitignore
+.vscode
+.idea
+*.log

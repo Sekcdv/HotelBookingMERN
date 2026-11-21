@@ -110,3 +110,17 @@
 - **Decision:** Keep `/business-insights` public nav (showcase); denser dashboard KPIs from Booking/Review aggregates; insights invalidate once via hotel chain; nav prefetch; KPI value right / MoM left same row. No Next SSR/Redis/fake AI APIs.
 - **Rationale:** Demo transparency + RQ instant CRUD sync; Vite SPA shell + keepPreviousData.
 - **Resume:** `c1-t5-ai-auth-seed`
+
+## [C1] 2026-11-20T00:00:00Z | RELEASE | DEPLOY_ENV_CONFIG
+
+- **Decision:** Re-entry de configuración de despliegue: crear `.env` backend y `.env.local` frontend (gitignoreados), añadir `.dockerignore` para excluir secretos del build context, alinear healthcheck del Dockerfile con `PORT || 5001`, generar `JWT_SECRET_KEY`. `VITE_STRIPE_PUB_KEY` (pk_test) configurado en `.env.local` y `vercel.json`. Pendiente del usuario: password Atlas, `CLOUDINARY_API_SECRET` y `STRIPE_API_KEY` (sk_test).
+- **Rationale:** El backend hace fail-fast; `VITE_STRIPE_PUB_KEY` no estaba configurado en Vercel; el `COPY` del Dockerfile podía incorporar `.env` a la imagen.
+- **Linked REQ:** REQ-0027 · REQ-0028
+- **Resume:** `c1-t5-ai-auth-seed`
+
+## [C1] 2026-11-21T00:50:00Z | BUILD | JWT_DEPENDENCY_FIX
+
+- **Decision:** Subir `jsonwebtoken` de `^9.0.2` a `^9.0.3` (vía `npm install`) para romper la cadena `jws@3 → jwa@1 → buffer-equal-constant-time@1.0.1`, que accede a `SlowBuffer.prototype` (inexistente en Node 26) y crasheaba `npm run dev`. La nueva cadena `jws@4 → jwa@2` usa `crypto.timingSafeEqual`. Usuario ya completó los secretos y ajustó URLs a localhost para desarrollo local.
+- **Rationale:** `tsc` pasaba porque no ejecuta los `require`; el fallo solo aparecía en runtime con ts-node. Fix de dependencia, no parcheo de `node_modules`.
+- **Linked REQ:** REQ-0028 (runtime backend) · ART-0028.2
+- **Resume:** `c1-t5-ai-auth-seed`

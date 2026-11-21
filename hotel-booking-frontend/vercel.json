@@ -4,7 +4,8 @@
   "framework": "vite",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "env": {
-    "VITE_API_BASE_URL": "https://hotel-booking-backend.arnobmahmud.com"
+    "VITE_API_BASE_URL": "https://hotel-booking-backend.arnobmahmud.com",
+    "VITE_STRIPE_PUB_KEY": "pk_test_51UdUzS7qAoVRmRILqDBhl3ess1ZCv9OKDqZjmbz4EZ7BrQ5nJ6NI7HNLFlMduPUyfZGBiTL5ggioVjghN4T4zkAb00HCkRUzo1"
   },
   "headers": [
     {
